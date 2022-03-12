@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Security Tutorial</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="../static/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../static/dist/css/adminlte.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<!-- /.card -->
+	<!-- Horizontal Form -->
+	<div class="card card-info"
+		style="margin-top: 10%; margin-bottom: 10%; margin-left: 25%; margin-right: 25%">
+		<div class="card-header">
+			<h1 class="card-title"
+				style="margin-bottom: 50px; text-align: center;">Login</h1>
+		</div>
+		<!-- /.card-header -->
+		<!-- form start -->
+		<form class="form-horizontal" th:action="@{/login}" method="POST">
+			<div class="card-body">
+				<div class="form-group row">
+					<label for="email" class="col-sm-2 col-form-label">Email</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="email" name="email"
+							th:placeholder="Email">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="password" class="col-sm-2 col-form-label">Password</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control"
+							th:placeholder="Password" id="password" name="password">
+					</div>
+				</div>
+				<div align="center" th:if="${param.error}">
+					<p style="font-size: 20; color: #FF1C19;">Email or Password
+						invalid, please verify</p>
+				</div>
+				<div class="form-group row">
+					<div class="offset-sm-2 col-sm-2" style="float: right">
+						<button type="submit" class="btn btn-info" name="Submit"
+							value="Login">Login</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- /.card-body -->
+		<div class="card-footer">
+			<div class="offset-sm-2 col-sm-3" style="float: right">
+				<a th:href="@{/registration}">Go To Registration Page</a>
+			</div>
+
+		</div>
+		<!-- /.card-footer -->
+
+	</div>
+	<!-- /.card -->
+
+</body>
+</html>
